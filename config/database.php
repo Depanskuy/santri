@@ -1,17 +1,23 @@
 <?php
-    function db(): mysqli
-    {
-        static $conn = null;
-        if ($conn) return $conn;
-  
-        $conn = new mysqli('127.0.0.1', 'root', '', 'santri_belajar');
-  
-        if ($conn->connect_error) {
-            die('Database error: ' . $conn->connect_error);
-        }
-  
-        $conn->set_charset('utf8mb4');
-        return $conn;
-    }
-
+   function db(): PDO                                                                                                                               
+   {
+       static $pdo = null;
+       if ($pdo) return $pdo;
+       try {
+           $pdo = new PDO(
+               'mysql:host=127.0.0.1;dbname=santri_belajar;charset=utf8mb4',
+               'root',
+               '',
+               [
+                   PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+                   PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+                   PDO::ATTR_EMULATE_PREPARES   => false,
+               ]
+           );
+       } catch (PDOException $e) {
+           die('Database error: ' . $e->getMessage());
+       }
+ 
+       return $pdo;
+   }
 ?>
