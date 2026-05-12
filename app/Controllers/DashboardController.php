@@ -25,6 +25,6 @@ class DashboardController
             'total_dokter' => method_exists($dokterModel, 'countAll') ? $dokterModel->countAll() : 0
         ];
 
-        return View::render('dashboard', $data);
+        return View::render('dashboard', $data, 'main');
     }
 }

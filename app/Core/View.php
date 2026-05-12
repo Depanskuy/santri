@@ -2,15 +2,30 @@
     namespace App\Core;
     
     class View {
-        public static function render(string $view, array $data = []): void
+        public static function render(string $view, array $data = [], string $layout = null): void
+        {   
+            $content = self::capture($view, $data);
+            if($layout){
+                $layoutData = array_merge($data, [content => $content]);
+                self::capture('layout/'. $layout . '.php', $layoutData);
+            }else{
+                echo $content;
+            }
+
+        }
+
+        public static function capture(string $name, array $data = []): string
         {
-            $file = __DIR__. "/../View/" . $view . '.php';
+            $file = __DIR__ . '/../app/View/' . $name . '.php';
             if(!file_exists($file)){
-                throw new \RuntimeException("View tidak ada!");
+                throw new \RuntimeException("View tidak ada: ${name}");
             }
 
             extract($data, EXTR_SKIP);
+
+            ob_start();
             require $file;
+            return ob_get_clean();
         }
     }
     
