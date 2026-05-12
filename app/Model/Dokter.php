@@ -1,5 +1,7 @@
 <?php
-namespace App\Model;
+namespace App\Model;                                                                                                                       
+
+use PDO;
 class Dokter {
       public static function all(bool $isAktif = false): array
       {

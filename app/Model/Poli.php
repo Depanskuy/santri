@@ -1,5 +1,9 @@
 <?php
-namespace App\Model;
+
+namespace App\Model;                                                                                                                       
+
+use PDO;
+
 class Poli                                                                                                                                   {                                                                                                                                          
       public static function all(bool $onlyOpen = false): array
       {

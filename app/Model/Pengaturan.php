@@ -1,5 +1,8 @@
 <?php
-namespace App\Model;
+
+namespace App\Model;                                                                                                                       
+
+use PDO;
 
 class Pengaturan
 {

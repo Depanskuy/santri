@@ -1,5 +1,7 @@
 <?php
+namespace App\Model;                                                                                                                       
 
+use PDO;
 class Antrian {
       public static function generateNumber(int $poliId, string $date): array
       {
