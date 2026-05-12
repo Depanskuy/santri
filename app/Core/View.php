@@ -16,7 +16,7 @@
 
         public static function capture(string $name, array $data = []): string
         {
-            $file = __DIR__ . '/../app/View/' . $name . '.php';
+            $file = __DIR__ . '/../View/' . $name . '.php';
             if(!file_exists($file)){
                 throw new \RuntimeException("View tidak ada: ${name}");
             }
