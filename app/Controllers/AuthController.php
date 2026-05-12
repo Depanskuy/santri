@@ -14,7 +14,7 @@ class AuthController
             exit;
         }
         
-        return View::render('login');
+        return View::render('auth/login');
     }
 
     public function loginProcess()
@@ -39,7 +39,7 @@ class AuthController
                 exit;
             }
 
-            return View::render('login', ['error' => 'Username atau password salah!']);
+            return View::render('auth/login', ['error' => 'Username atau password salah!']);
         }
     }
 

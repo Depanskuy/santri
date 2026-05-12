@@ -14,7 +14,7 @@
         '/about'       => ['App\Controllers\HomeController',   'about'],
         '/faq'         => ['App\Controllers\HomeController',   'faq'],
   
-        '/login'       => ['App\Controllers\AuthController',   'showLogin'],
+        '/login'       => ['App\Controllers\AuthController',   'login'],
         '/register'    => ['App\Controllers\AuthController',   'showRegister'],
         '/logout'      => ['App\Controllers\AuthController',   'logout'],
   
