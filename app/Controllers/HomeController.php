@@ -7,7 +7,7 @@
     {
         public function index()
         {
-            View::render('dashboard');
+            View::render('home/index');
         }
     }
 
